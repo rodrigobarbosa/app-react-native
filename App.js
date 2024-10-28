@@ -646,6 +646,62 @@
 
 // export default App;
 
+// App.js
+// import React, { useState, createContext, useContext } from 'react';
+// import { View, Text, Button, StyleSheet, StatusBar } from 'react-native';
+
+// // Criando o contexto para o tema
+// const ThemeContext = createContext();
+
+// export default function App() {
+//   const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+//   const toggleTheme = () => {
+//     setIsDarkTheme(!isDarkTheme);
+//   };
+
+//   const theme = {
+//     dark: isDarkTheme,
+//     colors: {
+//       background: isDarkTheme ? '#000' : '#fff',
+//       text: isDarkTheme ? '#fff' : '#000',
+//     },
+//   };
+
+//   return (
+//     <ThemeContext.Provider value={{ theme, toggleTheme }}>
+//       <ThemeWrapper />
+//     </ThemeContext.Provider>
+//   );
+// }
+
+// // Componente que gerencia o tema
+// function ThemeWrapper() {
+//   const { theme, toggleTheme } = useContext(ThemeContext);
+
+//   return (
+//     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+//       <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} />
+//       <Text style={[styles.text, { color: theme.colors.text }]}>
+//         Este é o tema {theme.dark ? 'Escuro' : 'Claro'}
+//       </Text>
+//       <Button title="Alternar Tema" onPress={toggleTheme} />
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   text: {
+//     fontSize: 18,
+//     marginBottom: 20,
+//   },
+// });
+
 // import React from 'react';
 // import { View, Image, StyleSheet } from 'react-native';
 
@@ -1041,72 +1097,921 @@
 // }
 
 // App.js
-import 'react-native-gesture-handler'; // Certifique-se de que este é o primeiro import
-import React from 'react';
-import { Button, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+// import 'react-native-gesture-handler'; // Certifique-se de que este é o primeiro import
+// import React from 'react';
+// import { Button, Text, View } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+// import { Home } from './Home/index';
 
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
-const Drawer = createDrawerNavigator();
+// const Stack = createStackNavigator();
+// const Tab = createBottomTabNavigator();
+// const Drawer = createDrawerNavigator();
 
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Tela Home</Text>
-      <Button
-        title="Ir para Tela Detalhes"
-        onPress={() => navigation.navigate('Details')}
-      />
-    </View>
-  );
-}
+// function HomeScreen({ navigation }) {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Text>Tela Home</Text>
+//       <Button
+//         title="Ir para Tela Detalhes"
+//         onPress={() => navigation.navigate('Details')}
+//       />
+//     </View>
+//   );
+// }
 
-function DetailsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Tela Detalhes</Text>
-    </View>
-  );
-}
+// function DetailsScreen() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Text>Tela Detalhes</Text>
+//     </View>
+//   );
+// }
 
-function AboutScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Tela About</Text>
-    </View>
-  );
-}
+// function AboutScreen() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Text>Tela About</Text>
+//     </View>
+//   );
+// }
 
-function HomeStackNavigator() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
-    </Stack.Navigator>
-  );
-}
+// function HomeStackNavigator() {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="Home" component={HomeScreen} />
+//       <Stack.Screen name="Details" component={DetailsScreen} />
+//     </Stack.Navigator>
+//   );
+// }
 
-function TabNavigator() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeStackNavigator} />
-      <Tab.Screen name="About" component={AboutScreen} />
-    </Tab.Navigator>
-  );
-}
+// function TabNavigator() {
+//   return (
+//     <Tab.Navigator>
+//       <Tab.Screen name="Home" component={HomeStackNavigator} />
+//       <Tab.Screen name="About" component={AboutScreen} />
+//     </Tab.Navigator>
+//   );
+// }
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Tabs" component={TabNavigator} />
-        <Drawer.Screen name="About Drawer" component={AboutScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
-}
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       <Drawer.Navigator>
+//         <Drawer.Screen name="Tabs" component={TabNavigator} />
+//         <Drawer.Screen name="About Drawer" component={AboutScreen} />
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+// import React, { useEffect, useState } from 'react';
+// import { View, Text, ActivityIndicator, FlatList, StyleSheet } from 'react-native';
+
+// const FetchApiExample = () => {
+//   const [data, setData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     // Realizando requisição GET com Fetch API
+//     fetch('https://jsonplaceholder.typicode.com/posts')
+//       .then((response) => response.json())
+//       .then((json) => {
+//         setData(json);
+//         setLoading(false);
+//       })
+//       .catch((error) => {
+//         console.error(error);
+//         setLoading(false);
+//       });
+//   }, []);
+
+//   if (loading) {
+//     return <ActivityIndicator size="large" color="#0000ff" />;
+//   }
+
+//   return (
+//     <View style={styles.container}>
+//       <FlatList
+//         data={data}
+//         keyExtractor={(item) => item.id.toString()}
+//         renderItem={({ item }) => (
+//           <View style={styles.item}>
+//             <Text style={styles.title}>{item.title}</Text>
+//             <Text>{item.body}</Text>
+//           </View>
+//         )}
+//       />
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     paddingTop: 20,
+//   },
+//   item: {
+//     backgroundColor: '#f9c2ff',
+//     padding: 20,
+//     marginVertical: 8,
+//     marginHorizontal: 16,
+//   },
+//   title: {
+//     fontSize: 20,
+//   },
+// });
+
+// export default FetchApiExample;
+
+// import React, { useEffect, useState } from 'react';
+// import { View, Text, ActivityIndicator, FlatList, StyleSheet } from 'react-native';
+// import axios from 'axios';
+
+// const AxiosApiExample = () => {
+//   const [data, setData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     // Realizando requisição GET com Axios
+//     axios.get('https://jsonplaceholder.typicode.com/posts')
+//       .then((response) => {
+//         setData(response.data);
+//         setLoading(false);
+//       })
+//       .catch((error) => {
+//         console.error(error);
+//         setLoading(false);
+//       });
+//   }, []);
+
+//   if (loading) {
+//     return <ActivityIndicator size="large" color="#0000ff" />;
+//   }
+
+//   return (
+//     <View style={styles.container}>
+//       <FlatList
+//         data={data}
+//         keyExtractor={(item) => item.id.toString()}
+//         renderItem={({ item }) => (
+//           <View style={styles.item}>
+//             <Text style={styles.title}>{item.title}</Text>
+//             <Text>{item.body}</Text>
+//           </View>
+//         )}
+//       />
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     paddingTop: 20,
+//   },
+//   item: {
+//     backgroundColor: '#f9c2ff',
+//     padding: 20,
+//     marginVertical: 8,
+//     marginHorizontal: 16,
+//   },
+//   title: {
+//     fontSize : 20,
+//   },
+// });
+
+// export default AxiosApiExample;
+
+// import React, { useState } from 'react';
+// import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+
+// const PostWithFetch = () => {
+//   const [title, setTitle] = useState('');
+//   const [body, setBody] = useState('');
+//   const [response, setResponse] = useState(null);
+
+//   const postData = async () => {
+//     try {
+//       const result = await fetch('https://jsonplaceholder.typicode.com/posts', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//           title,
+//           body,
+//           userId: 1,
+//         }),
+//       });
+
+//       const json = await result.json();
+//       setResponse(json);
+//     } catch (error) {
+//       console.error('Erro ao enviar dados:', error);
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Título"
+//         value={title}
+//         onChangeText={setTitle}
+//       />
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Corpo"
+//         value={body}
+//         onChangeText={setBody}
+//       />
+//       <Button title="Enviar" onPress={postData} />
+//       {response && (
+//         <Text style={styles.response}>
+//           Resposta: {JSON.stringify(response, null, 2)}
+//         </Text>
+//       )}
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     padding: 20,
+//   },
+//   input: {
+//     height: 40,
+//     borderColor: 'gray',
+//     borderWidth: 1,
+//     marginBottom: 10,
+//     paddingHorizontal: 10,
+//   },
+//   response: {
+//     marginTop: 20,
+//   },
+// });
+
+// export default PostWithFetch;
+
+// import React, { useState } from 'react';
+// import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+// import axios from 'axios';
+
+// const PostWithAxios = () => {
+//   const [title, setTitle] = useState('');
+//   const [body, setBody] = useState('');
+//   const [response, setResponse] = useState(null);
+
+//   const postData = async () => {
+//     try {
+//       const result = await axios.post('https://jsonplaceholder.typicode.com/posts', {
+//         title,
+//         body,
+//         userId: 1,
+//       });
+
+//       setResponse(result.data);
+//     } catch (error) {
+//       console.error('Erro ao enviar dados:', error);
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Título"
+//         value={title}
+//         onChangeText={setTitle}
+//       />
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Corpo"
+//         value={body}
+//         onChangeText={setBody}
+//       />
+//       <Button title="Enviar" onPress={postData} />
+//       {response && (
+//         <Text style={styles.response}>
+//           Resposta: {JSON.stringify(response, null, 2)}
+//         </Text>
+//       )}
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     padding: 20,
+//   },
+//   input: {
+//     height: 40,
+//     borderColor: 'gray',
+//     borderWidth: 1,
+//     marginBottom: 10,
+//     paddingHorizontal: 10,
+//   },
+//   response: {
+//     marginTop: 20,
+//   },
+// });
+
+// export default PostWithAxios;
+
+// import React, { useState } from 'react';
+// import { View, Button, Text, Image, StyleSheet } from 'react-native';
+// import * as ImagePicker from 'expo-image-picker';
+
+// const UploadWithFetch = () => {
+//   const [image, setImage] = useState(null);
+//   const [response, setResponse] = useState(null);
+
+//   const pickImage = async () => {
+//     let result = await ImagePicker.launchImageLibraryAsync({
+//       mediaTypes: ImagePicker.MediaTypeOptions.Images,
+//       allowsEditing: true,
+//       aspect: [4, 3],
+//       quality: 1,
+//     });
+
+//     if (!result.cancelled) {
+//       setImage(result.uri);
+//     }
+//   };
+
+//   const uploadImage = async () => {
+//     let formData = new FormData();
+//     formData.append('photo', {
+//       uri: image,
+//       name: 'photo.jpg',
+//       type: 'image/jpeg',
+//     });
+
+//     try {
+//       const res = await fetch('https://your-upload-api.com/upload', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'multipart/form-data',
+//         },
+//         body: formData,
+//       });
+
+//       const json = await res.json();
+//       setResponse(json);
+//     } catch (error) {
+//       console.error('Erro ao fazer upload:', error);
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <Button title="Escolher Imagem" onPress={pickImage} />
+//       {image && (
+//         <>
+//           <Image source={{ uri: image }} style={styles.image} />
+//           <Button title="Upload Imagem" onPress={uploadImage} />
+//         </>
+//       )}
+//       {response && (
+//         <Text style={styles.response}>
+//           Resposta: {JSON.stringify(response, null, 2)}
+//         </Text>
+//       )}
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     padding: 20,
+//   },
+//   image: {
+//     width: 200,
+//     height: 200,
+//     marginVertical: 10,
+//   },
+//   response: {
+//     marginTop: 20,
+//   },
+// });
+
+// const fetchDataWithHeaders = async () => {
+//   try {
+//     const response = await fetch('https://api.example.com/data', {
+//       method: 'GET',
+//       headers: {
+//         'Authorization': 'Bearer your-token-here',
+//         'Content-Type': 'application/json',
+//       },
+//     });
+
+//     if (!response.ok) {
+//       throw new Error('Erro na requisição');
+//     }
+
+//     const data = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.error('Erro ao buscar dados:', error);
+//   }
+// };
+
+
+// export default fetchDataWithHeaders;
+
+// import React, { useState } from 'react';
+// import { View, Button, Text, Image, StyleSheet } from 'react-native';
+// import axios from 'axios';
+// import * as ImagePicker from 'expo-image-picker';
+
+// const UploadWithAxios = () => {
+//   const [image, setImage] = useState(null);
+//   const [response, setResponse] = useState(null);
+
+//   const pickImage = async () => {
+//     let result = await ImagePicker.launchImageLibraryAsync({
+//       mediaTypes: ImagePicker.MediaTypeOptions.Images,
+//       allowsEditing: true,
+//       aspect: [4, 3],
+//       quality: 1,
+//     });
+
+//     if (!result.cancelled) {
+//       setImage(result.uri);
+//     }
+//   };
+
+//   const uploadImage = async () => {
+//     let formData = new FormData();
+//     formData.append('photo', {
+//       uri: image,
+//       name: 'photo.jpg',
+//       type: 'image/jpeg',
+//     });
+
+//     try {
+//       const res = await axios.post('https://your-upload-api.com/upload', formData, {
+//         headers: {
+//           'Content-Type': 'multipart/form-data',
+//         },
+//       });
+
+//       setResponse(res.data);
+//     } catch (error) {
+//       console.error('Erro ao fazer upload:', error);
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <Button title="Escolher Imagem" onPress={pickImage} />
+//       {image && (
+//         <>
+//           <Image source={{ uri: image }} style={styles.image} />
+//           <Button title="Upload Imagem" onPress={uploadImage} />
+//         </>
+//       )}
+//       {response && (
+//         <Text style={styles.response}>
+//           Resposta: {JSON.stringify(response, null, 2)}
+//         </Text>
+//       )}
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     padding: 20,
+//   },
+//   image: {
+//     width: 200,
+//     height: 200,
+//     marginVertical: 10,
+//   },
+//   response: {
+//     marginTop: 20,
+//   },
+// });
+
+// const fetchDataWithAxiosAndHeaders = async () => {
+//   try {
+//     const response = await axios.get('https://api.example.com/data', {
+//       headers: {
+//         'Authorization': 'Bearer your-token-here',
+//       },
+//     });
+
+//     console.log(response.data);
+//   } catch (error) {
+//     console.error('Erro ao buscar dados:', error);
+//   }
+// };
+
+
+// export default fetchDataWithAxiosAndHeaders;
+
+// import React from 'react';
+// import { View, StyleSheet } from 'react-native';
+// import LottieView from 'lottie-react-native';
+
+// const App = () => (
+//   <View style={styles.container}>
+//     <LottieView
+//       source={require('./assets/animation.json')}
+//       autoPlay
+//       loop
+//     />
+//   </View>
+// );
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+// });
+
+// export default App;
+
+// import React from 'react';
+// import { Provider as PaperProvider, Button, Card, Title, Paragraph } from 'react-native-paper';
+// import { View } from 'react-native';
+
+// const App = () => {
+//   return (
+//     <PaperProvider>
+//       <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}>
+//         <Card>
+//           <Card.Content>
+//             <Title>React Native Paper</Title>
+//             <Paragraph>This is an example card using React Native Paper.</Paragraph>
+//           </Card.Content>
+//           <Card.Actions>
+//             <Button onPress={() => alert('Pressed')}>Press me</Button>
+//           </Card.Actions>
+//         </Card>
+//         <Card>
+//           <Card.Content>
+//             <Title>React Native Paper COPIED</Title>
+//             <Paragraph>This is an example card using React Native Paper COPIED.</Paragraph>
+//           </Card.Content>
+//           <Card.Actions>
+//             <Button onPress={() => alert('Pressed COPIED')}>Press me COPIED</Button>
+//           </Card.Actions>
+//         </Card>
+//       </View>
+//     </PaperProvider>
+//   );
+// };
+
+// export default App;
+
+// import React, { useEffect, useRef } from 'react';
+// import { View, Text, Button, Animated, StyleSheet } from 'react-native';
+
+// const FadeInView = ({ children }) => {
+//   const fadeAnim = useRef(new Animated.Value(0)).current; // valor inicial de opacidade
+
+//   useEffect(() => {
+//     Animated.timing(fadeAnim, {
+//       toValue: 1,
+//       duration: 2000,
+//       useNativeDriver: true,
+//     }).start();
+//   }, [fadeAnim]);
+
+//   return (
+//     <Animated.View style={{ ...styles.fadeContainer, opacity: fadeAnim }}>
+//       {children}
+//     </Animated.View>
+//   );
+// };
+
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <FadeInView>
+//         <Text style={styles.text}>Tela com animação de fade-in!</Text>
+//       </FadeInView>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+//   fadeContainer: { padding: 20, backgroundColor: '#e0f7fa', borderRadius: 8 },
+//   text: { fontSize: 18, textAlign: 'center' },
+// });
+
+// import React, { useEffect, useRef } from 'react';
+// import { View, Animated, Button, StyleSheet } from 'react-native';
+
+// const ScaleAnimation = () => {
+//   const scaleValue = useRef(new Animated.Value(0)).current;
+
+//   useEffect(() => {
+//     Animated.spring(scaleValue, {
+//       toValue: 1,
+//       friction: 3,
+//       tension: 40,
+//       useNativeDriver: true,
+//     }).start();
+//   }, [scaleValue]);
+
+//   return (
+//     <Animated.View style={[styles.box, { transform: [{ scale: scaleValue }] }]}>
+//       <Button title="Pressione" onPress={() => alert('Botão expandido!')} />
+//     </Animated.View>
+//   );
+// };
+
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <ScaleAnimation />
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+//   box: { padding: 20, backgroundColor: '#ff8a80', borderRadius: 8 },
+// });
+
+// import React, { useEffect, useRef } from 'react';
+// import { View, Text, Animated, StyleSheet, Button } from 'react-native';
+
+// const SlideInView = ({ children }) => {
+//   const slideAnim = useRef(new Animated.Value(-500)).current;
+
+//   useEffect(() => {
+//     Animated.timing(slideAnim, {
+//       toValue: 0,
+//       duration: 1000,
+//       useNativeDriver: true,
+//     }).start();
+//   }, [slideAnim]);
+
+//   return (
+//     <Animated.View style={[styles.slideContainer, { transform: [{ translateY: slideAnim }] }]}>
+//       {children}
+//     </Animated.View>
+//   );
+// };
+
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <SlideInView>
+//         <Text style={styles.text}>Tela com animação de deslizar!</Text>
+//       </SlideInView>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+//   slideContainer: { padding: 20, backgroundColor: '#a5d6a7', borderRadius: 8 },
+//   text: { fontSize: 18, textAlign: 'center' },
+// });
+
+// import React, { useEffect, useRef } from 'react';
+// import { View, Animated, StyleSheet } from 'react-native';
+
+// const RotateView = () => {
+//   const rotateAnim = useRef(new Animated.Value(0)).current;
+
+//   useEffect(() => {
+//     Animated.loop(
+//       Animated.timing(rotateAnim, {
+//         toValue: 1,
+//         duration: 1000,
+//         useNativeDriver: true,
+//       })
+//     ).start();
+//   }, [rotateAnim]);
+
+//   const rotation = rotateAnim.interpolate({
+//     inputRange: [0, 1],
+//     outputRange: ['0deg', '1800deg'],
+//   });
+
+//   return (
+//     <Animated.View style={[styles.box, { transform: [{ rotate: rotation }] }]} />
+//   );
+// };
+
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <RotateView />
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+//   box: { width: 100, height: 100, backgroundColor: '#f44336', borderRadius: 8 },
+// });
+
+// import React, { useEffect, useRef } from 'react';
+// import { View, Text, Animated, StyleSheet } from 'react-native';
+
+// const MoveAndFadeView = ({ children }) => {
+//   const fadeAnim = useRef(new Animated.Value(0)).current;
+//   const translateX = useRef(new Animated.Value(-100)).current;
+
+//   useEffect(() => {
+//     Animated.parallel([
+//       Animated.timing(fadeAnim, {
+//         toValue: 1,
+//         duration: 3000,
+//         useNativeDriver: true,
+//       }),
+//       Animated.timing(translateX, {
+//         toValue: 0,
+//         duration: 4000,
+//         useNativeDriver: true,
+//       }),
+//     ]).start();
+//   }, [fadeAnim, translateX]);
+
+//   return (
+//     <Animated.View style={[styles.combinedContainer, { opacity: fadeAnim, transform: [{ translateX }] }]}>
+//       {children}
+//     </Animated.View>
+//   );
+// };
+
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <MoveAndFadeView>
+//         <Text style={styles.text}>Tela com movimento e fade-in combinados!</Text>
+//       </MoveAndFadeView>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+//   combinedContainer: { padding: 20, backgroundColor: '#ce93d8', borderRadius: 8 },
+//   text: { fontSize: 18, textAlign: 'center' },
+// });
+
+// import React, { useEffect, useRef } from 'react';
+// import { View, Text, Animated, StyleSheet, Button } from 'react-native';
+
+// const SlideInView = ({ children }) => {
+//   const slideAnim = useRef(new Animated.Value(-500)).current;
+
+//   useEffect(() => {
+//     Animated.timing(slideAnim, {
+//       toValue: 0,
+//       duration: 1000,
+//       useNativeDriver: true,
+//     }).start();
+//   }, [slideAnim]);
+
+//   return (
+//     <Animated.View style={[styles.slideContainer, { transform: [{ translateY: slideAnim }] }]}>
+//       {children}
+//     </Animated.View>
+//   );
+// };
+
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <SlideInView>
+//         <Text style={styles.text}>Tela com animação de deslizar!</Text>
+//       </SlideInView>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+//   slideContainer: { padding: 20, backgroundColor: '#a5d6a7', borderRadius: 8 },
+//   text: { fontSize: 18, textAlign: 'center' },
+// });
+
+// import React, { useState } from 'react';
+// import { View, Text, StyleSheet, Animated } from 'react-native';
+// import { PanGestureHandler } from 'react-native-gesture-handler';
+
+// const SwipeToDelete = () => {
+//   const [items, setItems] = useState(["Item 1", "Item 2", "Item 3"]);
+
+//   const onSwipe = (index) => {
+//     setItems((prevItems) => prevItems.filter((_, i) => i !== index));
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       {items.map((item, index) => (
+//         <SwipeableItem key={index} item={item} onSwipe={() => onSwipe(index)} />
+//       ))}
+//     </View>
+//   );
+// };
+
+// const SwipeableItem = ({ item, onSwipe }) => {
+//   const translateX = new Animated.Value(0);
+
+//   const onGestureEvent = Animated.event([{ nativeEvent: { translationX: translateX } }], { useNativeDriver: true });
+
+//   return (
+//     <PanGestureHandler
+//       onGestureEvent={onGestureEvent}
+//       onEnded={() => {
+//         if (translateX._value < -100) onSwipe();
+//         else Animated.spring(translateX, { toValue: 0, useNativeDriver: true }).start();
+//       }}
+//     >
+//       <Animated.View style={[styles.item, { transform: [{ translateX }] }]}>
+//         <Text style={styles.text}>{item}</Text>
+//       </Animated.View>
+//     </PanGestureHandler>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, paddingTop: 50 },
+//   item: { padding: 20, backgroundColor: '#f9c2ff', marginBottom: 10, borderRadius: 5 },
+//   text: { fontSize: 18 },
+// });
+
+// export default SwipeToDelete;
+
+// import React, { useRef } from 'react';
+// import { View, StyleSheet, Animated } from 'react-native';
+// import { PanGestureHandler } from 'react-native-gesture-handler';
+
+// const SlideToAdjustOpacity = () => {
+//   const opacity = useRef(new Animated.Value(2)).current;
+
+//   const onGestureEvent = Animated.event(
+//     [{ nativeEvent: { translationX: opacity } }],
+//     { useNativeDriver: false }
+//   );
+
+//   return (
+//     <PanGestureHandler
+//       onGestureEvent={onGestureEvent}
+//       onEnded={() => Animated.spring(opacity, { toValue: 2, useNativeDriver: true }).start()}
+//     >
+//       <Animated.View style={[styles.box, { opacity }]}>
+//         <View style={styles.square} />
+//       </Animated.View>
+//     </PanGestureHandler>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   box: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+//   square: { width: 100, height: 100, backgroundColor: '#4caf50' },
+// });
+
+// export default SlideToAdjustOpacity;
+
+// import React from 'react';
+// import { View, Text, StyleSheet, Animated } from 'react-native';
+// import { LongPressGestureHandler, State } from 'react-native-gesture-handler';
+
+// const LongPressButton = () => {
+//   const scale = new Animated.Value(1);
+
+//   const onHandlerStateChange = ({ nativeEvent }) => {
+//     if (nativeEvent.state === State.ACTIVE) {
+//       Animated.spring(scale, { toValue: 1.2, useNativeDriver: true }).start();
+//     } else if (nativeEvent.state === State.END) {
+//       Animated.spring(scale, { toValue: 1, useNativeDriver: true }).start();
+//       alert('Botão pressionado por um longo tempo!');
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <LongPressGestureHandler onHandlerStateChange={onHandlerStateChange} minDurationMs={1000}>
+//         <Animated.View style={[styles.button, { transform: [{ scale }] }]}>
+//           <Text style={styles.text}>Pressione Longo</Text>
+//         </Animated.View>
+//       </LongPressGestureHandler>
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+//   button: { padding: 20, backgroundColor: '#6200ea', borderRadius: 8 },
+//   text: { color: 'white', fontSize: 18 },
+// });
+
+// export default LongPressButton;
 
